@@ -20,6 +20,20 @@ const EMPRENDIMIENTOS = [
     "iniciales": "JS"
   },
   {
+    "nombre": "Chaco seguridad",
+    "rubro": "Tecnología",
+    "descripcion": "Instalación de cámaras de seguridad y alarmas",
+    "ofrece": [
+      "Todo de informática"
+    ],
+    "localidad": "Campo Largo, Chaco",
+    "responsable": "Diaz Miguel",
+    "whatsapp": "5493644155608",
+    "entrega": "Con envío",
+    "logo": "💻",
+    "color": "#3F5CAB"
+  },
+  {
     "ejemplo": true,
     "nombre": "Dulce Tentación",
     "rubro": "Pastelería",
