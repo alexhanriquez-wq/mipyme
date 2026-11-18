@@ -26,6 +26,7 @@ const EMPRENDIMIENTOS = [
     localidad: "Campo Largo, Chaco",
     web: "https://js.pymes.uno",
     iniciales: "JS",
+    foto: "assets/emprendimientos/js.png",
   },
   {
     ejemplo: true,
@@ -38,6 +39,7 @@ const EMPRENDIMIENTOS = [
     whatsapp: "5493731000000",
     instagram: "ejemplo",
     entrega: "Envíos en el pueblo",
+    foto: "assets/emprendimientos/dulce.svg",
   },
   {
     ejemplo: true,
@@ -47,6 +49,7 @@ const EMPRENDIMIENTOS = [
     ofrece: ["Bicicletas", "Soldadura", "Rejas"],
     localidad: "Campo Largo, Chaco",
     whatsapp: "5493731000000",
+    foto: "assets/emprendimientos/tornillo.svg",
   },
   {
     ejemplo: true,
@@ -56,5 +59,6 @@ const EMPRENDIMIENTOS = [
     ofrece: ["Gorros", "Bufandas", "Ajuares"],
     localidad: "Avia Terai, Chaco",
     instagram: "ejemplo",
+    foto: "assets/emprendimientos/lunita.svg",
   },
 ];

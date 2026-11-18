@@ -322,3 +322,64 @@
 .alta-tip{display:flex;align-items:center;gap:14px;margin:20px 0 0;padding:16px 18px;border-radius:14px;background:rgba(72,212,255,.1);border:1px solid rgba(72,212,255,.3);color:#e3f4fb!important;font-size:16px;font-weight:600;line-height:1.5}
 .alta-tip span{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:12px;background:rgba(72,212,255,.18);font-size:24px}
 @media(max-width:760px){.alta-tip{font-size:15px;padding:14px}}
+
+/* Vidrio liviano: sin backdrop-filter ni blur (se trababa en el celu) */
+.gl-vidrio,.gl-vidrio .emp-card,.vd-marca,.hz-chips span{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.gl-manchas,.gl-reflejo{display:none!important}
+.gl-vidrio{background:radial-gradient(ellipse at 12% 0%,rgba(125,226,255,.14),transparent 55%),radial-gradient(ellipse at 95% 100%,rgba(196,181,253,.12),transparent 55%),linear-gradient(150deg,#10233a,#0b1a2d)!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 24px 50px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.18)!important}
+.gl-vidrio::before{background:linear-gradient(180deg,rgba(255,255,255,.05),transparent)!important}
+.gl-vidrio .emp-card:not(.emp-join){background:#fff!important}
+.vd-marca{background:rgba(255,255,255,.1)!important}
+
+/* Las tarjetas que salen por arriba se van subiendo, y las de abajo aparecen subiendo */
+.js .rv.arriba:not(.visto){transform:translateY(-40px) scale(.97)}
+.js .rv:not(.visto){transition-delay:0s!important;transition-duration:.5s,.6s}
+
+/* Menos animaciones: se apaga todo lo decorativo y solo queda el flotar lento de los dibujos principales */
+main *,main *::before,main *::after{animation:none!important}
+main .vd-local{animation:vd-flota 9s ease-in-out infinite!important}
+main .lt-lap,main .pt-grid,main .pw2-web{animation:flotar 8s ease-in-out infinite!important}
+main .lt-scan,main .pt-order,main .pw2-pedido{animation:flotar 8s ease-in-out -4s infinite!important}
+main .pw-phone{animation:flotar 9s ease-in-out -2s infinite!important}
+main .lt-barras i{animation:lt-laser 2.6s ease-in-out infinite!important}
+
+/* Tarjetas de negocios en distintos colores fríos (pastel, el texto oscuro se sigue leyendo bien) */
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas){border:1px solid transparent!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+1){background:linear-gradient(160deg,#e3f4ff,#cfeafc)!important;border-color:#a9d8f5!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+2){background:linear-gradient(160deg,#e2faf2,#c9f0e2)!important;border-color:#9fe0c8!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+3){background:linear-gradient(160deg,#ece8ff,#dcd5fd)!important;border-color:#c0b4f7!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+4){background:linear-gradient(160deg,#e0f8fb,#c6eef4)!important;border-color:#94dbe6!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+5){background:linear-gradient(160deg,#e6ecff,#d1dcfc)!important;border-color:#adc0f5!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+6){background:linear-gradient(160deg,#e4f6f0,#cdeee6)!important;border-color:#a3dccd!important}
+
+/* Tarjetas de negocios en colores fríos OSCUROS, con texto claro */
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas){color:#e6f1f8!important;box-shadow:0 14px 30px rgba(0,0,0,.35)!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+1){background:linear-gradient(160deg,#123a5c,#0c2740)!important;border-color:#2a5f8a!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+2){background:linear-gradient(160deg,#0f4a42,#09302c)!important;border-color:#25776a!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+3){background:linear-gradient(160deg,#2e2a68,#1d1a47)!important;border-color:#5a52a8!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+4){background:linear-gradient(160deg,#0d4656,#082f3b)!important;border-color:#247489!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+5){background:linear-gradient(160deg,#1e3470,#13224b)!important;border-color:#3f5cab!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas):nth-child(6n+6){background:linear-gradient(160deg,#164a3b,#0d3026)!important;border-color:#2f7d66!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) h3{color:#fff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-rubro{color:#7fdcff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-desc{color:#cfdde8!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-info{color:#a9bccb!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-tags li{background:rgba(255,255,255,.1)!important;color:#d6f3ff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-logo{background:rgba(255,255,255,.12)!important;color:#7fdcff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-link{border-color:rgba(255,255,255,.22)!important;color:#fff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-link:hover{background:rgba(255,255,255,.1)!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-wa{background:#25d366!important;border-color:#25d366!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-ig{color:#ff8fc8!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-fb{color:#8ab8ff!important}
+.gl-vidrio .emp-card:not(.emp-join):not(.emp-vermas) .emp-web{background:#48d4ff!important;border-color:#48d4ff!important;color:#081321!important}
+
+/* Tarjetas de ejemplo: aviso bien visible + botones bloqueados que muestran un cartelito */
+.emp-ejemplo::after{display:none!important}
+.gl-vidrio .emp-card.emp-ejemplo{border:2px dashed rgba(255,200,87,.7)!important}
+.emp-aviso{margin:-4px 0 12px;padding:7px 10px;border-radius:9px;background:#ffc857;color:#3a2600;font-size:12px;font-weight:800;letter-spacing:.2px;text-align:center;box-shadow:0 4px 12px rgba(255,200,87,.25)}
+.emp-link-off{pointer-events:auto!important;cursor:not-allowed!important;opacity:.6!important;font:inherit;font-size:12px;font-weight:700}
+.emp-link-off:hover{opacity:.85!important}
+.emp-toast{position:fixed;left:50%;bottom:24px;z-index:9999;display:grid;gap:4px;width:min(380px,calc(100% - 32px));padding:14px 18px;border-radius:14px;background:#ffc857;color:#3a2600;box-shadow:0 18px 40px rgba(0,0,0,.45);font-size:14px;line-height:1.4;opacity:0;transform:translate(-50%,20px);pointer-events:none;transition:opacity .25s,transform .25s}
+.emp-toast.ver{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.emp-toast b{font-size:15px}
+.emp-toast a{color:#3a2600;font-weight:800;text-decoration:underline}

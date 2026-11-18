@@ -126,7 +126,7 @@
     <section class="section section-dark pos-section" id="software">
       <div class="container">
         <div class="section-heading section-heading-dark">
-          <div><div class="eyebrow"><span class="pos-new">Nuevo</span> Software</div><h2>Programas para tu<br>negocio a <span>otro nivel.</span></h2></div>
+          <div><div class="eyebrow"><span class="pos-new">Nuevo</span> Software</div><h2>Programas de ventas y gestión<br>para <span>potenciar tu negocio.</span></h2></div>
           <p>Para vender y controlar tu caja, sin internet. <strong>Pymes Lite es gratis.</strong></p>
         </div>
 
@@ -346,13 +346,14 @@
   <script src="emprendimientos.js"></script>
   <script src="script.js"></script>
   <script>
-    // Las tarjetas y dibujitos aparecen suaves a medida que bajás.
+    // Las tarjetas aparecen al entrar en pantalla y se van al salir (hacia arriba o hacia abajo), en los dos sentidos.
     if ("IntersectionObserver" in window) {
       document.documentElement.classList.add("js");
       const obs = new IntersectionObserver((entradas) => entradas.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); }
+        e.target.classList.toggle("visto", e.isIntersecting);
+        if (!e.isIntersecting) e.target.classList.toggle("arriba", e.boundingClientRect.top < 0);
       }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-      document.querySelectorAll(".emp-list-head, .hz-copy, .section-heading, .pos-card, .pw-card, .precio-card, .cta-inner, .contact-card").forEach((el, i) => {
+      document.querySelectorAll(".vd-art, .vitrina-copy > h1, .emp-list-head, .hz-copy, .section-heading, .pos-card, .pw-card, .precio-card, .pw2, .cta-inner, .contact-card").forEach((el, i) => {
         el.classList.add("rv");
         el.style.transitionDelay = (el.matches(".pos-card, .contact-card") ? (i % 3) * 0.12 : 0) + "s";
         obs.observe(el);

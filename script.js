@@ -172,6 +172,7 @@ function renderEmprendimientos() {
   const tarjeta = (e) => {
     const card = el("article", "emp-card" + (e.ejemplo ? " emp-ejemplo" : "") + (tieneWeb(e) ? " emp-destacado" : ""));
     if (tieneWeb(e)) card.append(el("span", "emp-badge", "★ Página web"));
+    if (e.ejemplo) card.append(el("div", "emp-aviso", "⚠️ Ejemplo ilustrativo · así se vería tu negocio"));
 
     const head = el("div", "emp-head");
     const logo = el("span", "emp-logo");
@@ -215,8 +216,9 @@ function renderEmprendimientos() {
     if (e.ejemplo) {
       // Ejemplo: los botones se ven pero no llevan a ningún lado (los datos son inventados).
       ["WhatsApp", e.instagram ? "Instagram" : null].filter(Boolean).forEach((t) => {
-        const s = el("span", "emp-link emp-link-off " + (t === "WhatsApp" ? "emp-wa" : "emp-ig"), t);
-        s.title = "Ejemplo: así se verían tus botones";
+        const s = el("button", "emp-link emp-link-off " + (t === "WhatsApp" ? "emp-wa" : "emp-ig"), "🔒 " + t);
+        s.type = "button";
+        s.addEventListener("click", () => avisoEjemplo(t));
         acciones.append(s);
       });
       card.append(acciones);
@@ -246,6 +248,22 @@ function renderEmprendimientos() {
     b.append(el("span", "emp-join-flecha", "→"));
     card.append(b);
     return card;
+  };
+
+  // Cartelito que avisa que los botones de las tarjetas de ejemplo no llevan a ningún lado.
+  let avisoTimer;
+  const avisoEjemplo = (red) => {
+    let t = document.getElementById("emp-toast");
+    if (!t) {
+      t = el("div", "emp-toast");
+      t.id = "emp-toast";
+      t.setAttribute("role", "status");
+      document.body.append(t);
+    }
+    t.innerHTML = "<b>🔒 Es solo un ejemplo ilustrativo</b><span>Este negocio no existe: así se vería el botón de " + red + " en tu tarjeta. <a href=\"sumate.html\">Sumá el tuyo gratis →</a></span>";
+    t.classList.add("ver");
+    clearTimeout(avisoTimer);
+    avisoTimer = setTimeout(() => t.classList.remove("ver"), 4000);
   };
 
   const MAX_PORTADA = 6;
