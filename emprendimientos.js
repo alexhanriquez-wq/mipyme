@@ -29,6 +29,7 @@ const EMPRENDIMIENTOS = [
     "localidad": "Campo Largo, Chaco",
     "responsable": "Diaz Miguel",
     "whatsapp": "5493644155608",
+    "facebook": "https://www.facebook.com/share/1cWUjjxtge/",
     "entrega": "Con envío",
     "logo": "💻",
     "color": "#3F5CAB"
