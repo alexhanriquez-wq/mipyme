@@ -94,14 +94,16 @@ function renderEmprendimientos() {
   const contador = document.getElementById("emp-contador");
   if (!lista || typeof EMPRENDIMIENTOS === "undefined") return;
 
-  // Los ejemplos solo se ven al abrir la página en la PC (no en pymes.uno).
-  const local = location.protocol === "file:" || /^(localhost|127\.|192\.168\.)/.test(location.hostname);
   const tieneWeb = (e) => /^https?:\/\//.test(String(e.web || ""));
-  // Los que tienen página web hecha por PYMES van primero; el resto, en el orden del archivo.
+  // Las tarjetas de ejemplo muestran cómo se vería un emprendimiento mientras haya pocos cargados (menos de 6);
+  // van al final, marcadas como "Ejemplo" y con los botones desactivados.
+  const reales = EMPRENDIMIENTOS.filter((e) => e && e.nombre && !e.ejemplo);
+  const mostrarEjemplos = reales.length < 6;
+  // Los que tienen página web hecha por PYMES van primero; después el resto, y los ejemplos al final.
   const todos = EMPRENDIMIENTOS
-    .filter((e) => e && e.nombre && (local || !e.ejemplo))
+    .filter((e) => e && e.nombre && (!e.ejemplo || mostrarEjemplos))
     .map((e, i) => ({ e, i }))
-    .sort((a, b) => (tieneWeb(b.e) - tieneWeb(a.e)) || a.i - b.i)
+    .sort((a, b) => (!!a.e.ejemplo - !!b.e.ejemplo) || (tieneWeb(b.e) - tieneWeb(a.e)) || a.i - b.i)
     .map((x) => x.e);
 
   const normalizar = (t) => String(t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -142,10 +144,10 @@ function renderEmprendimientos() {
 
   // Números de la portada.
   const stats = document.getElementById("emp-stats");
-  if (stats && todos.length) {
-    const localidades = new Set(todos.map((e) => String(e.localidad || "").split(",")[0].trim()).filter(Boolean));
-    document.getElementById("emp-n-emp").textContent = todos.length;
-    document.getElementById("emp-n-rub").textContent = rubros.length;
+  if (stats && reales.length) {
+    const localidades = new Set(reales.map((e) => String(e.localidad || "").split(",")[0].trim()).filter(Boolean));
+    document.getElementById("emp-n-emp").textContent = reales.length;
+    document.getElementById("emp-n-rub").textContent = new Set(reales.map((e) => e.rubro).filter(Boolean)).size;
     document.getElementById("emp-n-loc").textContent = localidades.size;
     stats.hidden = false;
   }
@@ -209,6 +211,16 @@ function renderEmprendimientos() {
     }
 
     const acciones = el("div", "emp-actions");
+    if (e.ejemplo) {
+      // Ejemplo: los botones se ven pero no llevan a ningún lado (los datos son inventados).
+      ["WhatsApp", e.instagram ? "Instagram" : null].filter(Boolean).forEach((t) => {
+        const s = el("span", "emp-link emp-link-off " + (t === "WhatsApp" ? "emp-wa" : "emp-ig"), t);
+        s.title = "Ejemplo: así se verían tus botones";
+        acciones.append(s);
+      });
+      card.append(acciones);
+      return card;
+    }
     if (tieneWeb(e)) acciones.append(enlace("emp-web", e.web, "Ver su página ↗"));
     const wa = soloNumeros(e.whatsapp);
     if (wa.length >= 10) {
@@ -225,10 +237,12 @@ function renderEmprendimientos() {
 
   const sumate = () => {
     const card = el("article", "emp-card emp-join");
-    card.append(el("h3", "", "¿Tenés un emprendimiento?"));
-    card.append(el("p", "", "Mostralo acá para que la gente de la zona te conozca y te escriba. No hace falta que tengas página web."));
-    const b = el("a", "emp-join-link", "Quiero aparecer ↗");
+    card.append(el("span", "emp-join-kicker", "✦ ¡Sé el primero!"));
+    card.append(el("h3", "", "Tu emprendimiento puede estar acá"));
+    card.append(el("p", "", "Aparecé gratis en la vidriera de pymes.uno para que la gente de la zona te conozca y te escriba. No hace falta que tengas página web."));
+    const b = el("a", "emp-join-btn", "Quiero aparecer");
     b.href = "sumate.html";
+    b.append(el("span", "emp-join-flecha", "→"));
     card.append(b);
     return card;
   };
@@ -241,7 +255,8 @@ function renderEmprendimientos() {
     );
     lista.replaceChildren(...visibles.map(tarjeta), sumate());
     if (vacio) vacio.hidden = visibles.length > 0 || todos.length === 0;
-    if (contador) contador.textContent = visibles.length ? String(visibles.length) : "";
+    const visiblesReales = visibles.filter((e) => !e.ejemplo).length;
+    if (contador) contador.textContent = visiblesReales ? String(visiblesReales) : "";
     if (actual) {
       const partes = [];
       if (rubroActivo) partes.push(`rubro “${rubroActivo}”`);

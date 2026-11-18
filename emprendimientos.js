@@ -15,8 +15,8 @@
 //   foto         imagen opcional en assets/emprendimientos/, ej. "assets/emprendimientos/dulces.jpg"
 //   iniciales    1 a 3 letras para el logo cuando no hay foto (si no se pone, se usan las 2 primeras)
 //
-// Los bloques con  ejemplo: true  solo se ven al abrir la página en tu PC; en pymes.uno no aparecen.
-// Borralos cuando cargues los emprendimientos reales.
+// Los bloques con  ejemplo: true  son tarjetas de muestra ("así se vería el tuyo"): van al final, con los botones
+// desactivados, y dejan de mostrarse solas cuando hay 6 emprendimientos reales cargados. También se pueden borrar.
 const EMPRENDIMIENTOS = [
   {
     nombre: "JS Distribuidora",
@@ -29,7 +29,7 @@ const EMPRENDIMIENTOS = [
   },
   {
     ejemplo: true,
-    nombre: "Dulce Tentación (ejemplo)",
+    nombre: "Dulce Tentación",
     rubro: "Pastelería",
     descripcion: "Tortas, budines y mesas dulces caseras por encargo para cumpleaños y eventos.",
     ofrece: ["Tortas", "Budines", "Mesa dulce", "Alfajores"],
@@ -41,7 +41,7 @@ const EMPRENDIMIENTOS = [
   },
   {
     ejemplo: true,
-    nombre: "Taller El Tornillo (ejemplo)",
+    nombre: "Taller El Tornillo",
     rubro: "Servicios",
     descripcion: "Arreglos de bicicletas, motos chicas y herrería a medida.",
     ofrece: ["Bicicletas", "Soldadura", "Rejas"],
@@ -50,7 +50,7 @@ const EMPRENDIMIENTOS = [
   },
   {
     ejemplo: true,
-    nombre: "Tejidos Lunita (ejemplo)",
+    nombre: "Tejidos Lunita",
     rubro: "Ropa y accesorios",
     descripcion: "Prendas tejidas a mano para bebés y adultos. Se hacen a pedido en el color que elijas.",
     ofrece: ["Gorros", "Bufandas", "Ajuares"],
