@@ -77,10 +77,17 @@
             <label>Instagram<input name="instagram" maxlength="40" placeholder="@usuario"></label>
             <label>Facebook<input name="facebook" maxlength="120" placeholder="Nombre o enlace de la página"></label>
             <label class="alta-full">Entrega<input name="entrega" maxlength="60" placeholder="Ej. Envíos en el pueblo, retiro a domicilio…"></label>
+            <div class="alta-full alta-ubi">
+              <label for="alta-ubicacion">📍 Ubicación <small>(opcional)</small></label>
+              <div class="alta-ubi-fila">
+                <input id="alta-ubicacion" name="ubicacion" maxlength="200" placeholder="Dirección o link de Google Maps">
+                <button type="button" class="alta-ubi-btn" id="alta-ubi-btn">📍 Usar mi ubicación</button>
+              </div>
+              <p class="alta-ubi-ayuda" id="alta-ubi-ayuda">Si estás en tu local, tocá el botón y se completa sola. Así la gente puede encontrarte en el mapa.</p>
+            </div>
           </div>
           <datalist id="alta-rubros"><option value="Pastelería"><option value="Comida casera"><option value="Ropa y accesorios"><option value="Artesanías"><option value="Belleza y estética"><option value="Servicios"><option value="Oficios"><option value="Almacén"><option value="Distribuidora"><option value="Plantas y jardín"><option value="Mascotas"><option value="Tecnología"></datalist>
 
-          <p class="alta-tip"><span aria-hidden="true">📷</span> Si tenés logo o una foto de tus productos, mandala en el mismo chat de WhatsApp.</p>
           <p class="alta-error" id="alta-error" hidden></p>
 
           <button type="submit" class="button sm-submit">Enviar por WhatsApp <span aria-hidden="true">↗</span></button>

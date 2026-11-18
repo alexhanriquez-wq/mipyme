@@ -167,6 +167,13 @@ function renderEmprendimientos() {
     return a;
   };
   const soloNumeros = (t) => String(t || "").replace(/\D/g, "");
+  // La ubicación puede ser un link de Google Maps, coordenadas "lat,lng" o una dirección escrita.
+  const linkMapa = (u) => {
+    u = String(u || "").trim();
+    if (!u) return "";
+    if (/^https?:\/\//.test(u)) return u;
+    return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(u);
+  };
   const usuarioIg = (t) => String(t || "").trim().replace(/^@/, "").replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/.*$/, "");
 
   const tarjeta = (e) => {
@@ -182,6 +189,11 @@ function renderEmprendimientos() {
       img.alt = "";
       img.loading = "lazy";
       logo.append(img);
+    } else if (e.logo) {
+      // Logo hecho con un emoji y un color de fondo (se elige en el cargador).
+      logo.classList.add("emp-logo-emoji");
+      logo.textContent = e.logo;
+      if (e.color) logo.style.background = e.color;
     } else {
       logo.textContent = (e.iniciales || e.nombre.replace(/[^\p{L}\p{N} ]/gu, "").trim().slice(0, 2)).toUpperCase();
     }
@@ -234,6 +246,12 @@ function renderEmprendimientos() {
     if (ig) acciones.append(enlace("emp-ig", `https://instagram.com/${ig}`, "Instagram"));
     if (e.facebook && /^https?:\/\//.test(e.facebook)) acciones.append(enlace("emp-fb", e.facebook, "Facebook"));
     if (acciones.childElementCount) card.append(acciones);
+
+    const mapa = linkMapa(e.ubicacion);
+    if (mapa) {
+      const ubi = enlace("emp-ubi", mapa, "📍 Ver ubicación en el mapa");
+      card.append(ubi);
+    }
 
     return card;
   };
@@ -384,7 +402,7 @@ if (altaForm) {
       ...campo("Instagram", d.instagram),
       ...campo("Facebook", d.facebook),
       ...campo("Entrega", d.entrega),
-      ...(d.quiereweb ? ["", "✅ También me interesa tener mi página web."] : []),
+      ...campo("Ubicación", d.ubicacion),
     ];
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lineas.join("\n"))}`;
     window.open(url, "_blank", "noopener");
@@ -398,6 +416,30 @@ if (altaForm) {
     if (ev.target.classList) ev.target.classList.remove("alta-mal");
     if (ok) ok.hidden = true;
   });
+
+  // Botón "Usar mi ubicación": pide el GPS del celu y completa el campo con un link de Google Maps.
+  const ubiBtn = document.getElementById("alta-ubi-btn");
+  const ubiInput = document.getElementById("alta-ubicacion");
+  const ubiAyuda = document.getElementById("alta-ubi-ayuda");
+  if (ubiBtn && ubiInput) {
+    if (!("geolocation" in navigator)) ubiBtn.hidden = true;
+    ubiBtn.addEventListener("click", () => {
+      ubiBtn.disabled = true;
+      ubiBtn.textContent = "Buscando…";
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const lat = pos.coords.latitude.toFixed(6);
+        const lng = pos.coords.longitude.toFixed(6);
+        ubiInput.value = `https://maps.google.com/?q=${lat},${lng}`;
+        ubiBtn.textContent = "✓ Ubicación lista";
+        ubiBtn.disabled = false;
+        if (ubiAyuda) ubiAyuda.textContent = "Listo. Si no estás en tu local, borrala y escribí la dirección.";
+      }, () => {
+        ubiBtn.textContent = "📍 Usar mi ubicación";
+        ubiBtn.disabled = false;
+        if (ubiAyuda) ubiAyuda.textContent = "No pudimos obtener tu ubicación. Revisá que el GPS esté prendido y que el navegador tenga permiso, o escribí la dirección.";
+      }, { enableHighAccuracy: true, timeout: 15000 });
+    });
+  }
 }
 
 renderEmprendimientos();
