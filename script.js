@@ -248,13 +248,38 @@ function renderEmprendimientos() {
     return card;
   };
 
+  const MAX_PORTADA = 6;
+  const verMas = () => {
+    const card = el("a", "emp-card emp-vermas");
+    card.href = "negocios.html";
+    const arte = el("div", "vm-art");
+    arte.setAttribute("aria-hidden", "true");
+    ["🧁", "🧶", "🔧", "🍞", "🎨", "👕"].forEach((e, i) => {
+      const t = el("span", "vm-tile", e);
+      t.style.animationDelay = (i * 0.5) + "s";
+      arte.append(t);
+    });
+    arte.append(el("i", "vm-lupa"));
+    card.append(arte);
+    card.append(el("span", "vm-kicker", "🔎 Guía de comercios"));
+    card.append(el("h3", "", "Encontrá todos los negocios"));
+    card.append(el("p", "", `Todos los emprendimientos y comercios de la zona, en un solo lugar.`));
+    const b = el("span", "vm-btn", "Ver más");
+    b.append(el("span", "emp-join-flecha", "→"));
+    card.append(b);
+    return card;
+  };
+
   function pintar() {
     const q = normalizar(buscar ? buscar.value : "");
     const visibles = todos.filter((e) =>
       (!rubroActivo || e.rubro === rubroActivo) &&
       (!q || normalizar([e.nombre, e.rubro, e.localidad, e.descripcion, e.responsable, (e.ofrece || []).join(" ")].join(" ")).includes(q))
     );
-    lista.replaceChildren(...visibles.map(tarjeta), sumate());
+    // En la portada se muestran unos pocos; el resto está en negocios.html (tarjeta "Ver más").
+    const esDirectorio = document.body.dataset.pagina === "negocios";
+    const mostrar = !esDirectorio && !q && !rubroActivo ? visibles.slice(0, MAX_PORTADA) : visibles;
+    lista.replaceChildren(...mostrar.map(tarjeta), sumate(), ...(esDirectorio ? [] : [verMas()]));
     if (vacio) vacio.hidden = visibles.length > 0 || todos.length === 0;
     const visiblesReales = visibles.filter((e) => !e.ejemplo).length;
     if (contador) contador.textContent = visiblesReales ? String(visiblesReales) : "";
@@ -358,6 +383,15 @@ if (altaForm) {
 }
 
 renderEmprendimientos();
+
+// Pausa las animaciones de las secciones que no se ven (ahorra batería y anda más fluido en celulares).
+if ("IntersectionObserver" in window) {
+  const vigia = new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => e.target.classList.toggle("pausado", !e.isIntersecting));
+  }, { rootMargin: "150px 0px" });
+  document.querySelectorAll("main > section").forEach((s) => vigia.observe(s));
+}
+
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 configureWhatsApp();
