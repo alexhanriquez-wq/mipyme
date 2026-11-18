@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081321">
+  <meta name="description" content="Sumá tu emprendimiento a la vidriera de pymes.uno: completá tus datos y en menos de 24 hs aparecés para que la gente de la zona te conozca.">
+  <meta property="og:title" content="Sumá tu emprendimiento | pymes.uno">
+  <meta property="og:description" content="Completá tus datos y en menos de 24 hs tu emprendimiento aparece en la vidriera de pymes.uno.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pymes.uno/assets/compartir.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/logo-512.png">
+  <title>Sumá tu emprendimiento — pymes.uno</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="PYMES, ir al inicio">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/logo-icono.svg" alt="" width="38" height="38"></span>
+        <span class="brand-name">pymes<span>.</span></span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <a href="index.html#emprendedores">Emprendedores</a>
+        <a href="index.html#servicios">Qué hacemos</a>
+        <a href="index.html#software">Software</a>
+        <a class="nav-cta" href="index.html#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="sm-hero section-dark">
+      <div class="hero-glow glow-one"></div>
+      <div class="container sm-hero-inner">
+        <a class="sm-back" href="index.html#emprendedores"><span aria-hidden="true">←</span> Volver a la vidriera</a>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Vidriera pymes.uno</div>
+        <h1>Sumá tu <span>emprendimiento.</span></h1>
+        <p class="sm-lead">Completá tus datos, nos llegan por WhatsApp y te mostramos en la vidriera para que la gente de la zona te conozca y te escriba.</p>
+        <div class="sm-badge"><span aria-hidden="true">⏱</span> En menos de 24&nbsp;hs, aproximadamente, tu emprendimiento ya aparece en la página.</div>
+      </div>
+    </section>
+
+    <section class="sm-body">
+      <div class="container sm-grid">
+        <form class="sm-form" id="alta-form" novalidate>
+          <h2>Tus datos</h2>
+          <p class="sm-form-sub">Los campos con * son obligatorios. Lo que escribas es lo que se va a ver en tu tarjeta.</p>
+
+          <div class="alta-grid">
+            <label class="alta-full">Nombre del emprendimiento *<input name="nombre" required maxlength="60" placeholder="Ej. Dulce Tentación"></label>
+            <label>Rubro *<input name="rubro" required maxlength="40" list="alta-rubros" placeholder="Ej. Pastelería"></label>
+            <label>Localidad *<input name="localidad" required maxlength="50" value="Campo Largo, Chaco"></label>
+            <label class="alta-full">¿A qué te dedicás? *<textarea name="descripcion" required maxlength="220" rows="3" placeholder="Ej. Tortas y mesas dulces caseras por encargo para cumpleaños y eventos."></textarea></label>
+            <label class="alta-full">¿Qué vendés u ofrecés?<input name="ofrece" maxlength="120" placeholder="Separado por comas: tortas, budines, alfajores"></label>
+            <label>Tu nombre<input name="responsable" maxlength="40" placeholder="Quién atiende"></label>
+            <label>WhatsApp del emprendimiento *<input name="whatsapp" required inputmode="tel" maxlength="20" placeholder="Ej. 3731 555555"></label>
+            <label>Instagram<input name="instagram" maxlength="40" placeholder="@usuario"></label>
+            <label>Facebook<input name="facebook" maxlength="120" placeholder="Nombre o enlace de la página"></label>
+            <label class="alta-full">Entrega<input name="entrega" maxlength="60" placeholder="Ej. Envíos en el pueblo, retiro a domicilio…"></label>
+          </div>
+          <datalist id="alta-rubros"><option value="Pastelería"><option value="Comida casera"><option value="Ropa y accesorios"><option value="Artesanías"><option value="Belleza y estética"><option value="Servicios"><option value="Oficios"><option value="Almacén"><option value="Distribuidora"><option value="Plantas y jardín"><option value="Mascotas"><option value="Tecnología"></datalist>
+
+          <label class="alta-check"><input type="checkbox" name="quiereweb" id="alta-quiereweb"> <span><strong>También me interesa tener mi página web</strong> y ser de los primeros destacados en pymes.uno.</span></label>
+          <p class="alta-tip">📷 Si tenés logo o una foto de tus productos, mandala en el mismo chat de WhatsApp.</p>
+          <p class="alta-error" id="alta-error" hidden></p>
+
+          <button type="submit" class="button sm-submit">Enviar por WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="sm-ok" id="alta-ok" hidden>✅ ¡Listo! Se abrió WhatsApp con tus datos: <strong>tocá enviar</strong> y en menos de 24&nbsp;hs aparecés en la vidriera.</p>
+        </form>
+
+        <aside class="upsell" aria-labelledby="upsell-titulo">
+          <span class="upsell-tag">✦ Para los primeros</span>
+          <h3 id="upsell-titulo">No te quedes solo con una tarjeta.</h3>
+          <p>La tarjeta te presenta. <strong>Tu propia página web en pymes.uno te hace vender.</strong> Podés ser uno de los primeros negocios de la zona en tenerla y aparecer siempre adelante en la vidriera.</p>
+          <ul class="upsell-list">
+            <li><span>★</span> Primero y destacado en la vidriera</li>
+            <li><span>🔗</span> Tu dirección propia, ej. <b>tunegocio.pymes.uno</b></li>
+            <li><span>🛒</span> Catálogo con fotos, precios y ofertas</li>
+            <li><span>💬</span> Pedidos que te llegan listos por WhatsApp</li>
+            <li><span>⚙️</span> La manejás vos desde la PC o el celular</li>
+          </ul>
+          <div class="upsell-compare" aria-label="Tarjeta o página web">
+            <div><small>Tarjeta en la vidriera</small><b>Te conocen</b></div>
+            <span aria-hidden="true">→</span>
+            <div class="upsell-compare-web"><small>Tu página web</small><b>Te compran</b></div>
+          </div>
+          <a class="button upsell-btn" id="upsell-cta" href="index.html#contacto">Quiero mi página web <span aria-hidden="true">↗</span></a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main"><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/logo-icono.svg" alt="" width="38" height="38"></span><span class="brand-name">pymes<span>.</span></span></a><p>Tu negocio, conectado con nuevas oportunidades.</p><nav aria-label="Enlaces del pie de página"><a href="index.html#emprendedores">Emprendedores</a><a href="index.html#servicios">Qué hacemos</a><a href="index.html#software">Software</a><a href="index.html#contacto">Contacto</a></nav></div>
+    <div class="container footer-bottom"><span>© <span id="year">2026</span> PYMES. Todos los derechos reservados.</span><span>Diseñado con propósito en Chaco, Argentina.</span></div>
+  </footer>
+
+  <a class="whatsapp-float" id="whatsapp-float" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer" aria-label="Contactar a PYMES por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.4ZM12.1 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5H7.5c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.6s1.2 3 1.4 3.2c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg></a>
+  <script src="script.js"></script>
+</body>
+</html>

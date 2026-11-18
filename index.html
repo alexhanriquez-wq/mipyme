@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081321">
-  <meta name="description" content="PYMES crea páginas web personalizadas para comercios, emprendimientos y profesionales de Campo Largo y otras localidades de Chaco.">
-  <meta property="og:title" content="PYMES | Tu negocio, conectado con nuevas oportunidades">
-  <meta property="og:description" content="Páginas web personalizadas para negocios locales de Chaco.">
+  <meta name="description" content="Vidriera de emprendedores de Campo Largo y la región de Chaco: comida casera, ropa, artesanías, oficios y servicios, con contacto directo por WhatsApp. Y si tenés un negocio, PYMES te ayuda a crecer en lo digital.">  <meta property="og:title" content="pymes.uno | Emprendedores y negocios de tu zona">
+  <meta property="og:description" content="Página web, pedidos por WhatsApp y software para manejarlo todo, para negocios locales de Chaco.">
   <meta property="og:type" content="website">
-  <title>PYMES — Tu negocio, conectado con nuevas oportunidades</title>
+  <meta property="og:image" content="https://pymes.uno/assets/compartir.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="apple-touch-icon" href="assets/logo-512.png">
+  <title>pymes.uno — Emprendedores y negocios de tu zona</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,44 +24,86 @@
   <header class="site-header" id="inicio">
     <div class="container nav-wrap">
       <a class="brand" href="#inicio" aria-label="PYMES, ir al inicio">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 29V11h11.5a7 7 0 0 1 0 14H8m0-7h10" /><path d="M25 29V11h7" /></svg></span>
+        <span class="brand-mark" aria-hidden="true"><img src="assets/logo-icono.svg" alt="" width="38" height="38"></span>
         <span class="brand-name">pymes<span>.</span></span>
       </a>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#software">Software POS</a>
-        <a href="#comercios">Comercios</a>
-        <a href="#rubros">Para tu rubro</a>
-        <a href="#proceso">Cómo trabajamos</a>
-        <a href="#nosotros">Nosotros</a>
+        <a href="#emprendedores">Emprendedores</a>
+        <a href="#servicios">Qué hacemos</a>
+        <a href="#software">Software</a>
         <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="contenido">
-    <section class="hero section-dark">
+    <section class="vitrina section-dark" id="emprendedores" aria-labelledby="vitrina-titulo">
+      <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+      <div class="container vitrina-grid">
+        <div class="vitrina-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Vidriera de emprendedores y negocios · Chaco</div>
+          <h1 id="vitrina-titulo">Lo que se hace<br>en tu zona, en un<br><span>solo lugar.</span></h1>
+          <p class="vitrina-lead">Emprendimientos y negocios de la región: comida casera, ropa, artesanías, oficios, comercios y servicios. Encontrá lo que buscás y hablá directo con quien lo hace.</p>
+          <form class="vitrina-search" id="emp-form" role="search" action="#emp-listado">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="emp-buscar" type="search" placeholder="¿Qué estás buscando? Tortas, tejidos, herrería…" aria-label="Buscar emprendimientos" autocomplete="off">
+            <button class="button button-primary" type="submit">Buscar</button>
+          </form>
+          <div class="vitrina-rubros" id="emp-filtros" role="group" aria-label="Filtrar por rubro"></div>
+          <dl class="vitrina-stats" id="emp-stats" hidden>
+            <div><dt id="emp-n-emp">0</dt><dd>emprendimientos</dd></div>
+            <div><dt id="emp-n-rub">0</dt><dd>rubros</dd></div>
+            <div><dt id="emp-n-loc">0</dt><dd>localidades</dd></div>
+          </dl>
+        </div>
+        <div class="vitrina-art" aria-hidden="true">
+          <div class="orbit orbit-a"></div>
+          <div class="vt-card vt-a"><span class="vt-emoji">🧁</span><div><b>Comida casera</b><small>Tortas · panificados · viandas</small></div></div>
+          <div class="vt-card vt-b"><span class="vt-emoji">🧶</span><div><b>Ropa y tejidos</b><small>Hecho a mano, a pedido</small></div></div>
+          <div class="vt-card vt-c"><span class="vt-emoji">🔧</span><div><b>Oficios y servicios</b><small>Arreglos · herrería · fletes</small></div></div>
+          <div class="vt-card vt-d"><span class="vt-emoji">🎨</span><div><b>Artesanías</b><small>Regalos y decoración</small></div></div>
+          <div class="float-chip vt-chip"><span class="chip-check">✓</span> Contacto directo por WhatsApp</div>
+        </div>
+      </div>
+      <div class="container hero-bottom vitrina-bottom">
+        <span>¿TENÉS UN EMPRENDIMIENTO?</span>
+        <div class="vitrina-bottom-links"><a id="emp-sumar" href="sumate.html">Sumalo a la vidriera <span aria-hidden="true">↗</span></a><b>·</b><a href="#servicios-pymes">Conocé cómo te ayuda PYMES <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+
+    <section class="section emp-section" id="emp-listado" aria-labelledby="emp-titulo">
+      <div class="container">
+        <div class="emp-list-head">
+          <h2 id="emp-titulo">Emprendimientos <span class="emp-count" id="emp-contador"></span></h2>
+          <p id="emp-filtro-actual">Tocá un rubro o buscá arriba para filtrar.</p>
+        </div>
+        <div class="emp-grid" id="emp-lista"></div>
+        <p class="emp-empty" id="emp-vacio" hidden>No encontramos emprendimientos con esa búsqueda. <button type="button" class="emp-reset" id="emp-limpiar">Ver todos</button></p>
+      </div>
+    </section>
+
+    <section class="hero section-dark" id="servicios-pymes">
       <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Soluciones digitales para negocios locales</div>
-          <h1>Tu negocio merece<br>un lugar en <span>Internet.</span></h1>
-          <p class="hero-lead">Creamos páginas web personalizadas para comercios, emprendimientos y profesionales de Campo Largo y toda la región.</p>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Además de la vidriera</div>
+          <h2 class="hero-title">También hacemos<br>crecer tu negocio<br>desde lo <span>digital.</span></h2>
+          <p class="hero-lead">Más allá de mostrarte en pymes.uno, en PYMES armamos tu página web, te conectamos con tus clientes por WhatsApp y te damos el software para administrar tu negocio.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contacto">Quiero mi página web <span aria-hidden="true">↗</span></a>
-            <a class="button button-ghost" href="#comercios">Ver comercios en pymes.uno <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#contacto">Quiero hacer crecer mi negocio <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="#servicios">Ver qué hacemos <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-proof">
             <span class="proof-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span>
-            <p><strong>Diseñada para vos.</strong> Pensada para tus clientes.</p>
+            <p><strong>Tu vidriera, tu web y tu caja,</strong> en un solo lugar.</p>
           </div>
         </div>
         <div class="hero-art" aria-label="Vista ilustrativa de una página web en diferentes dispositivos">
           <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-          <div class="float-chip chip-top"><span class="chip-dot"></span> Diseño a medida</div>
+          <div class="float-chip chip-top"><span class="chip-dot"></span> Conectada con tu caja</div>
           <div class="browser-card">
             <div class="browser-top"><div class="browser-dots"><i></i><i></i><i></i></div><div class="browser-address">t negocio .com</div><span class="browser-menu">•••</span></div>
             <div class="mock-site">
@@ -78,38 +124,123 @@
 
     <section class="trust-strip">
       <div class="container trust-inner">
-        <div class="trust-item"><span class="trust-icon">✳</span><div><strong>Diseño personalizado</strong><small>Tu identidad, no una plantilla genérica</small></div></div>
-        <div class="trust-item"><span class="trust-icon">⌁</span><div><strong>Para todos los dispositivos</strong><small>Una experiencia cómoda en móvil y PC</small></div></div>
-        <div class="trust-item"><span class="trust-icon">↗</span><div><strong>Contacto más sencillo</strong><small>Que tus clientes sepan cómo encontrarte</small></div></div>
+        <div class="trust-item"><span class="trust-icon">↗</span><div><strong>Más visibilidad</strong><small>Destacado en la vidriera de pymes.uno y en internet</small></div></div>
+        <div class="trust-item"><span class="trust-icon">✳</span><div><strong>Más ventas</strong><small>Pedidos que te llegan directo por WhatsApp</small></div></div>
+        <div class="trust-item"><span class="trust-icon">⌁</span><div><strong>Todo bajo control</strong><small>Software para tu caja, tu stock y tu web</small></div></div>
       </div>
     </section>
 
-    <section class="section section-light" id="servicios">
+    <section class="section svc-section" id="servicios">
+      <div class="svc-blob svc-blob-a" aria-hidden="true"></div><div class="svc-blob svc-blob-b" aria-hidden="true"></div>
       <div class="container">
-        <div class="section-heading">
-          <div><div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Qué podemos crear</div><h2>Una web que se adapta<br>a <span>tu negocio.</span></h2></div>
-          <p>No todos los negocios son iguales. Por eso pensamos cada página según lo que ofrecés, a quién querés llegar y qué necesitás comunicar.</p>
+        <div class="section-heading svc-heading">
+          <div><div class="eyebrow svc-eyebrow"><span class="eyebrow-dot"></span> Nuestros servicios</div><h2>Lo que hacemos<br>por tu <span>negocio.</span></h2></div>
+          <p>Te ayudamos en tres frentes: que te encuentren, que te pidan y que lo manejes todo sin complicarte.</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card service-featured"><div class="service-number">01</div><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 6.5h.01M11 6.5h.01"/></svg></div><h3>Páginas institucionales</h3><p>Presentá tu negocio, tus servicios, tu historia y tus datos de contacto en un sitio profesional.</p><a href="#contacto" class="text-link">Quiero una página así <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">02</div><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></div><h3>Catálogos digitales</h3><p>Mostrá productos, fotos, características y precios para que tus clientes consulten fácilmente.</p><a href="#contacto" class="text-link">Consultar catálogo <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">03</div><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V8l8-5 8 5v12M8 20v-7h8v7M2 20h20"/></svg></div><h3>Webs para gastronomía</h3><p>Compartí tu menú, horarios, ubicación y opciones de contacto para que te encuentren.</p><a href="#contacto" class="text-link">Crear web gastronómica <span>↗</span></a></article>
-          <article class="service-card"><div class="service-number">04</div><div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Webs para profesionales</h3><p>Una presentación clara de tus servicios, experiencia, especialidades y formas de contacto.</p><a href="#contacto" class="text-link">Presentar mis servicios <span>↗</span></a></article>
+
+        <div class="svc-grid">
+          <article class="svc-card svc-featured">
+            <div class="svc-art" aria-hidden="true">
+              <div class="svc-browser">
+                <div class="svc-bar"><i></i><i></i><i></i><span>tunegocio.pymes.uno</span></div>
+                <div class="svc-site">
+                  <div class="svc-site-nav"><b>TU<em>NEGOCIO</em></b><span></span><span></span><span class="svc-cart">🛒 2</span></div>
+                  <div class="svc-banner"><small>OFERTA DE LA SEMANA</small><b>20% OFF</b></div>
+                  <div class="svc-products">
+                    <div><span class="svc-ph ph-1">🧁</span><b>$ 3.500</b><i></i></div>
+                    <div><span class="svc-ph ph-2">🥖</span><b>$ 1.200</b><i></i></div>
+                    <div><span class="svc-ph ph-3">🍪</span><b>$ 2.800</b><i></i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="svc-mini-phone"><span class="svc-ph ph-1">🧁</span><i></i><i class="short"></i><b>Agregar</b></div>
+              <span class="svc-float svc-float-a">✓ Adaptada a celulares</span>
+            </div>
+            <div class="svc-body">
+              <span class="svc-num">01</span>
+              <h3>Tu página web</h3>
+              <p>Diseñada a medida con tus productos y servicios, para que te encuentren y te compren.</p>
+              <ul class="svc-list">
+                <li>Diseño con tu logo y tus colores</li>
+                <li>Se ve perfecta en celulares</li>
+                <li>Catálogo con fotos, precios y ofertas</li>
+                <li>Tu dirección propia: <b>tunegocio.pymes.uno</b></li>
+                <li>Destacada primero en la vidriera</li>
+              </ul>
+              <a href="#contacto" class="svc-link">Quiero mi página <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-art svc-art-chat" aria-hidden="true">
+              <div class="svc-chat">
+                <div class="svc-chat-top"><span class="svc-avatar">TN</span><div><b>Tu Negocio</b><small>en línea</small></div></div>
+                <div class="svc-msg svc-in">¡Hola! Te hice un pedido desde la web 😊</div>
+                <div class="svc-msg svc-in svc-order">
+                  <b>🛒 Pedido nuevo</b>
+                  <span>2× Torta de chocolate</span>
+                  <span>6× Alfajores</span>
+                  <span class="svc-total">Total <b>$ 18.450</b></span>
+                </div>
+                <div class="svc-msg svc-out">¡Gracias! Te lo llevo a las 18 hs 👍 <small>✓✓</small></div>
+              </div>
+              <span class="svc-float svc-float-b">💬 Llega listo a tu WhatsApp</span>
+            </div>
+            <div class="svc-body">
+              <span class="svc-num">02</span>
+              <h3>Pedidos por WhatsApp</h3>
+              <p>Tus clientes arman el pedido en tu web y te llega completo, sin llamadas ni idas y vueltas.</p>
+              <ul class="svc-list">
+                <li>Carrito de compras en tu página</li>
+                <li>El pedido llega con detalle y total</li>
+                <li>Precio minorista y por mayor</li>
+                <li>Comprobante en PDF para tu cliente</li>
+              </ul>
+              <a href="#contacto" class="svc-link">Quiero recibir pedidos <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="svc-card">
+            <div class="svc-art svc-art-dash" aria-hidden="true">
+              <div class="svc-dash">
+                <div class="svc-dash-top"><b>Pymes</b><span>Hoy</span></div>
+                <div class="svc-kpis">
+                  <div><small>Ventas de hoy</small><b>$ 152.300</b><em>▲ 12%</em></div>
+                  <div><small>Tickets</small><b>48</b><em>▲ 5</em></div>
+                </div>
+                <div class="svc-bars"><i style="height:38%"></i><i style="height:55%"></i><i style="height:44%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:86%"></i><i class="hoy" style="height:94%"></i></div>
+                <div class="svc-alert">⚠ 3 productos con stock bajo</div>
+              </div>
+              <span class="svc-float svc-float-c">🌐 Tu web 24/7</span>
+            </div>
+            <div class="svc-body">
+              <span class="svc-num">03</span>
+              <h3>Software de gestión</h3>
+              <p>Pymes Lite para tu caja en la PC, PymesTienda para tiendas de ropa, o PymesWeb en el celular. Todo tu negocio en orden.</p>
+              <ul class="svc-list">
+                <li>Caja, stock y fiado bajo control</li>
+                <li>Lector de códigos y ticket impreso</li>
+                <li>Reportes con tu margen de ganancia</li>
+                <li>Publicás en tu web con un clic</li>
+                <li><b>Pymes Lite es gratis</b></li>
+              </ul>
+              <a href="#software" class="svc-link">Conocer el software <span>↓</span></a>
+            </div>
+          </article>
         </div>
-        <p class="small-note">¿Tenés otra idea? También podemos conversar sobre una solución específica para tu proyecto.</p>
       </div>
     </section>
 
     <section class="section section-dark pos-section" id="software">
       <div class="container">
         <div class="section-heading section-heading-dark">
-          <div><div class="eyebrow"><span class="pos-new">Nuevo</span> Software de punto de venta</div><h2>Tu caja y tu web,<br><span>conectadas y gratis.</span></h2></div>
-          <p>Ahora contamos con <strong>Pymes</strong>, nuestro sistema de punto de venta <strong>gratuito</strong> para negocios. Vendé, controlá stock, caja y fiado, y publicá tus productos en tu propia página web con un clic.</p>
+          <div><div class="eyebrow"><span class="pos-new">Nuevo</span> Software de gestión</div><h2>Software para llevar<br>tu negocio a <span>otro nivel.</span></h2></div>
+          <p>Con <strong>Pymes</strong>, nuestro sistema de punto de venta, tenés ventas, stock, caja y fiado en orden: menos tiempo con papeles y más tiempo para vender. Si tenés una tienda de ropa, está <strong>PymesTienda</strong>. <strong>Pymes Lite es gratis.</strong></p>
         </div>
 
         <div class="pos-link">
           <div class="pos-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
-          <div><h3>Con tu propia web enlazada</h3><p>Desde la <strong>Tienda web</strong> del programa publicás todos tus productos (o solo los que elijas) con precio, oferta e imagen. Las fotos se optimizan solas para que la web cargue rápido, el carrito manda los pedidos a tu <strong>WhatsApp</strong> y los horarios y datos de contacto también se editan desde la caja.</p></div>
+          <div><h3>Tu caja y tu web, conectadas</h3><p>Desde la <strong>Tienda web</strong> del programa publicás todos tus productos (o solo los que elijas) con precio, oferta e imagen. El carrito manda los pedidos a tu <strong>WhatsApp</strong> y los horarios y datos de contacto también se editan desde la caja.</p></div>
         </div>
 
         <div class="pos-grid">
@@ -126,7 +257,11 @@
               <li>Promos 2x1 y 3x2, etiquetas de góndola y reportes con margen de ganancia</li>
               <li>Factura electrónica ARCA opcional</li>
             </ul>
-            <div class="pos-specs"><div><b>0,5&nbsp;s</b><span>para abrir</span></div><div><b>Windows&nbsp;7</b><span>o superior</span></div><div><b>Sin</b><span>instalación</span></div></div>
+            <div class="pos-specs"><div><b>0,5&nbsp;s</b><span>para abrir</span></div><div><b>Windows&nbsp;10</b><span>o superior · 64 bits</span></div><div><b>Sin</b><span>instalación</span></div></div>
+            <div class="pos-download">
+              <a class="button button-primary" href="https://www.mediafire.com/file/9zaavjurk3516uk/PymesLite-x64.zip/file" target="_blank" rel="noopener noreferrer">Descargar Pymes Lite gratis <span aria-hidden="true">↓</span></a>
+              <small>Funciona en Windows 10 u 11 de 64 bits · archivo .zip de 180&nbsp;MB · descomprimí la carpeta y abrí <b>PymesLite.exe</b></small>
+            </div>
           </article>
 
           <article class="pos-card pos-card-pro">
@@ -147,6 +282,42 @@
           </article>
         </div>
 
+        <article class="pw-card pt-card">
+          <div class="pw-copy">
+            <div class="pos-card-top"><span class="pos-badge pt-badge">PymesTienda</span><span class="pos-for">Tiendas de ropa · indumentaria personalizada</span></div>
+            <h3>Tu tienda de ropa,<br>por mayor y <span>por menor.</span></h3>
+            <p class="pos-lead">Todo lo de Pymes Lite, pensado para <strong>tiendas de ropa y talleres de indumentaria personalizada</strong> (sublimación y estampado): talles, colores, precio mayorista y pedidos con seña.</p>
+            <ul class="pos-list pt-list">
+              <li><strong>Talles y colores:</strong> cargás el modelo una vez y se arma cada combinación con su código y su stock (ej. Remera Negro M)</li>
+              <li><strong>Por mayor y por menor:</strong> cada prenda con su precio mayorista; con una tecla la venta pasa a precio por mayor</li>
+              <li><strong>Pedidos con seña:</strong> cliente, fecha de entrega y detalle del trabajo (diseño, nombres, números), con la seña registrada en la caja</li>
+              <li><strong>Seguimiento:</strong> pendiente, en producción, listo y entregado, con aviso de “pedido listo” para mandar por WhatsApp</li>
+              <li><strong>Al entregar</strong> cobrás solo el saldo: la seña se descuenta sola y la caja cuadra</li>
+            </ul>
+            <div class="pos-download">
+              <a class="button button-primary pt-button" href="https://www.mediafire.com/file/siuynyj4ku2kmqa/PymesTienda-x64.zip/file" target="_blank" rel="noopener noreferrer">Descargar PymesTienda <span aria-hidden="true">↓</span></a>
+              <small>Funciona en Windows 10 u 11 de 64 bits · archivo .zip de 180&nbsp;MB · descomprimí la carpeta y abrí <b>PymesTienda.exe</b></small>
+            </div>
+          </div>
+          <div class="pt-art" aria-hidden="true">
+            <div class="pt-grid">
+              <div class="pt-grid-top"><b>Remera básica</b><span>Stock</span></div>
+              <table>
+                <tr><th></th><th>S</th><th>M</th><th>L</th><th>XL</th></tr>
+                <tr><td><i class="pt-dot negro"></i>Negro</td><td>4</td><td>6</td><td>3</td><td class="pt-low">1</td></tr>
+                <tr><td><i class="pt-dot blanco"></i>Blanco</td><td>5</td><td>8</td><td>4</td><td>2</td></tr>
+                <tr><td><i class="pt-dot rojo"></i>Rojo</td><td class="pt-zero">0</td><td>3</td><td>2</td><td>2</td></tr>
+              </table>
+            </div>
+            <div class="pt-order">
+              <div class="pt-order-top"><b>Pedido N° 27</b><span>Listo</span></div>
+              <small>12 buzos sublimados · Club Atlético</small>
+              <div class="pt-order-row"><span>Seña</span><b>$ 80.000</b></div>
+              <div class="pt-order-row"><span>Saldo</span><b>$ 120.000</b></div>
+            </div>
+          </div>
+        </article>
+
         <article class="pw-card">
           <div class="pw-copy">
             <div class="pos-card-top"><span class="pos-badge pw-badge">PymesWeb</span><span class="pos-for">¿No tenés PC? Usá el celular</span></div>
@@ -154,12 +325,16 @@
             <p class="pos-lead">Si no contás con una computadora para el punto de venta, tenés una alternativa: <strong>PymesWeb</strong>, una app para Android que administra tu página y está pensada para <strong>trabajar por WhatsApp levantando pedidos</strong>.</p>
             <ul class="pos-list pw-list">
               <li><strong>Productos:</strong> agregás, editás o sacás productos, con precio minorista, precio mayorista desde cierta cantidad, ofertas, stock y categorías</li>
-              <li><strong>Fotos desde el teléfono:</strong> la app las achica y las sube sola para que la web cargue rápido</li>
+              <li><strong>Fotos desde el teléfono:</strong> sacás la foto del producto y la subís a tu web en el momento</li>
               <li><strong>Pedidos por WhatsApp:</strong> el cliente arma su pedido en tu web, te llega por WhatsApp, lo pegás en la app y te avisa si algún precio cambió</li>
               <li><strong>Comprobantes en PDF:</strong> con tu logo, los datos del cliente, el detalle y el total, numerados y listos para mandar por WhatsApp</li>
               <li><strong>Horarios y contacto</strong> de la web, actualizados con un toque</li>
             </ul>
             <p class="pw-note"><b>Importante:</b> los comprobantes de PymesWeb <strong>no son facturas válidas</strong>. Son comprobantes internos (tipo X) que llevan la leyenda “Documento no válido como factura”. Si necesitás factura electrónica de ARCA, usá Pymes Lite.</p>
+            <div class="pos-download">
+              <a class="button button-primary" href="https://www.mediafire.com/file/zaxpjkq302llcef/PymesWeb.apk/file" target="_blank" rel="noopener noreferrer">Descargar PymesWeb para Android <span aria-hidden="true">↓</span></a>
+              <small>Android 8 o superior · archivo .apk de 10&nbsp;MB · al instalarlo, Android puede pedirte permitir apps de origen desconocido. Para usarla necesitás tu página web: <a href="#contacto">contratala con PYMES</a>.</small>
+            </div>
           </div>
           <div class="pw-phone" aria-hidden="true">
             <div class="pw-screen">
@@ -174,69 +349,47 @@
 
         <div class="pos-cta">
           <p><strong>Empezá hoy con Lite y pasá a Pro cuando esté disponible.</strong> Los mismos datos, las mismas pantallas.</p>
-          <a class="button button-primary" id="whatsapp-pos" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">Quiero el software gratis <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" id="whatsapp-pos" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">Consultar por el software <span aria-hidden="true">↗</span></a>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-pale" id="rubros">
-      <div class="container industries-layout">
-        <div class="industries-copy"><div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Tu rubro, tu estilo</div><h2>Hecha para el negocio<br>que <span>construiste.</span></h2><p>Una página web debe hablar el idioma de tu negocio. Diseñamos experiencias que destacan lo importante y hacen más fácil que las personas te conozcan.</p><a class="button button-dark" href="#contacto">Contanos tu idea <span>↗</span></a></div>
-        <div class="industry-grid">
-          <article class="industry-card"><div class="industry-art art-store"><span class="art-awning"></span><span class="art-window"></span></div><div class="industry-label"><span class="industry-emoji">▦</span><div><h3>Tiendas y comercios</h3><p>Productos, novedades y ubicación</p></div><span class="industry-arrow">↗</span></div></article>
-          <article class="industry-card"><div class="industry-art art-food"><span class="plate"></span><span class="plate-food"></span><span class="food-leaf"></span></div><div class="industry-label"><span class="industry-emoji">✳</span><div><h3>Restaurantes y bares</h3><p>Menú, horarios y reservas por contacto</p></div><span class="industry-arrow">↗</span></div></article>
-          <article class="industry-card"><div class="industry-art art-tools"><span class="tool-shape tool-one"></span><span class="tool-shape tool-two"></span><span class="tool-shape tool-three"></span></div><div class="industry-label"><span class="industry-emoji">⌘</span><div><h3>Servicios y oficios</h3><p>Qué hacés y cómo contratarte</p></div><span class="industry-arrow">↗</span></div></article>
-          <article class="industry-card"><div class="industry-art art-wellness"><span class="wellness-circle"></span><span class="wellness-person"></span><span class="wellness-leaf"></span></div><div class="industry-label"><span class="industry-emoji">✦</span><div><h3>Profesionales</h3><p>Experiencia, servicios y confianza</p></div><span class="industry-arrow">↗</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark process-section" id="proceso">
-      <div class="container">
-        <div class="section-heading section-heading-dark"><div><div class="eyebrow"><span class="eyebrow-dot"></span> Simple y claro</div><h2>De la idea a tu web,<br><span>paso a paso.</span></h2></div><p>Te acompañamos durante el proceso para que sepas qué estamos preparando y cómo va tomando forma tu página.</p></div>
-        <div class="process-grid">
-          <article class="process-step"><span class="step-count">01</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></div><h3>Nos contás tu idea</h3><p>Conocemos tu negocio, tus objetivos y qué te gustaría mostrar.</p></article>
-          <article class="process-step"><span class="step-count">02</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5L21 9.4l-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.4l6.3-.9L12 3z"/></svg></div><h3>Diseñamos tu página</h3><p>Preparamos una propuesta visual alineada con la identidad de tu marca.</p></article>
-          <article class="process-step"><span class="step-count">03</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></div><h3>Revisamos los detalles</h3><p>Vemos juntos los textos, imágenes y ajustes antes de publicar.</p></article>
-          <article class="process-step"><span class="step-count">04</span><div class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V3m-5 5 5-5 5 5M4 14v6h16v-6"/></svg></div><h3>La ponemos en línea</h3><p>Publicamos tu sitio y te contamos cómo acceder a él.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light about-section" id="nosotros">
-      <div class="container about-grid">
-        <div class="about-visual"><div class="about-panel"><div class="about-panel-top"><span class="mini-brand"><span class="mini-mark">p.</span> pymes</span><span class="status-pill"><i></i> Ideas en marcha</span></div><div class="about-big-type">Lo local<br>también puede<br><span>ser digital.</span></div><div class="about-bottom"><span>CAMPO LARGO · CHACO</span><span class="about-star">✳</span></div></div><div class="about-orb"></div><div class="about-sticker">Hecho con<br><b>intención.</b></div></div>
-        <div class="about-copy"><div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Conocé PYMES</div><h2>Creemos en el potencial<br>de los <span>negocios locales.</span></h2><p>PYMES nace con una idea sencilla: ayudar a que los comercios, emprendimientos y profesionales de nuestra región tengan una presencia digital propia y cuidada.</p><p>Queremos que cada proyecto tenga una web que lo represente, explique lo que ofrece y acerque sus productos o servicios a más personas.</p><div class="about-values"><div><span>01</span><strong>Cercanía</strong></div><div><span>02</span><strong>Personalización</strong></div><div><span>03</span><strong>Claridad</strong></div></div></div>
-      </div>
-    </section>
-
-    <section class="section section-pale" id="comercios">
-      <div class="container">
-        <div class="section-heading">
-          <div><div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Comercios en pymes.uno</div><h2>Encontrá negocios<br>de <span>tu zona.</span></h2></div>
-          <p>Estos comercios ya tienen su página con PYMES. Entrá, mirá sus productos y hacé tu pedido directo por WhatsApp. Comprando cerca, el negocio local crece.</p>
-        </div>
-        <div class="dir-tools">
-          <label class="dir-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="dir-buscar" placeholder="Buscar comercio, rubro o localidad" aria-label="Buscar comercio"></label>
-          <div class="dir-filters" id="dir-filtros" role="group" aria-label="Filtrar por rubro"></div>
-        </div>
-        <div class="dir-grid" id="dir-lista" aria-live="polite"></div>
-        <p class="dir-empty" id="dir-vacio" hidden>No encontramos comercios con esa búsqueda.</p>
       </div>
     </section>
 
     <section class="cta-section" id="contacto">
-      <div class="cta-glow"></div><div class="container cta-inner"><div class="cta-symbol"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 34V14h12a8 8 0 0 1 0 16H10m0-8h10M28 34V14h10"/></svg></div><div class="cta-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> El próximo paso empieza acá</div><h2>¿Le damos forma<br>a tu <span>idea?</span></h2><p>Contanos qué negocio tenés y qué te gustaría lograr. Hablemos de una web hecha para vos.</p></div><div class="cta-action"><a class="button button-primary button-large" id="whatsapp-cta" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span>↗</span></a><small>Sin compromiso. Primero, conozcamos tu proyecto.</small></div></div>
+      <div class="cta-glow"></div>
+      <div class="container contact-origin" id="contacto-origen" hidden>
+        <span class="contact-origin-icon" aria-hidden="true">✓</span>
+        <p><strong id="contacto-origen-titulo">Llegaste desde la app.</strong> <span id="contacto-origen-texto">Escribinos y te ayudamos a tener tu página web.</span></p>
+      </div>
+      <div class="container cta-inner"><div class="cta-symbol"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 34V14h12a8 8 0 0 1 0 16H10m0-8h10M28 34V14h10"/></svg></div><div class="cta-copy"><div class="eyebrow"><span class="eyebrow-dot"></span> Contacto</div><h2>¿Le damos forma<br>a tu <span>idea?</span></h2><p>Ya sea para aparecer en la vidriera, tener tu página web o empezar a usar el software, contanos qué negocio tenés y qué te gustaría lograr. Lo armamos juntos y te dejamos todo listo para usarlo.</p></div><div class="cta-action"><a class="button button-primary button-large" id="whatsapp-cta" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp <span>↗</span></a><small>Sin compromiso. Primero, conozcamos tu proyecto.</small></div></div>
+      <div class="container contact-grid">
+        <a class="contact-card" id="contacto-whatsapp" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span>
+          <span class="contact-label">WhatsApp</span>
+          <strong class="contact-value" data-whatsapp-visible>+54 9 3731 55-8574</strong>
+          <span class="contact-hint">Escribinos cuando quieras <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-card" id="contacto-llamar" href="tel:+5493731558574">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span class="contact-label">Teléfono</span>
+          <strong class="contact-value" data-whatsapp-visible>+54 9 3731 55-8574</strong>
+          <span class="contact-hint">Llamanos <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-card contact-card-config" id="contacto-config" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>
+          <span class="contact-label">¿Usás Pymes Lite o PymesWeb?</span>
+          <strong class="contact-value">Pedí tu configuración</strong>
+          <span class="contact-hint">Si todavía no tenés el archivo para conectar tu web, te lo preparamos <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container footer-main"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 29V11h11.5a7 7 0 0 1 0 14H8m0-7h10" /><path d="M25 29V11h7" /></svg></span><span class="brand-name">pymes<span>.</span></span></a><p>Tu negocio, conectado con nuevas oportunidades.</p><nav aria-label="Enlaces del pie de página"><a href="#servicios">Servicios</a><a href="#software">Software POS</a><a href="#comercios">Comercios</a><a href="#nosotros">Sobre PYMES</a><a href="#contacto">Contacto</a></nav></div>
+    <div class="container footer-main"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><img src="assets/logo-icono.svg" alt="" width="38" height="38"></span><span class="brand-name">pymes<span>.</span></span></a><p>Tu negocio, conectado con nuevas oportunidades.</p><nav aria-label="Enlaces del pie de página"><a href="#emprendedores">Emprendedores</a><a href="#servicios">Qué hacemos</a><a href="#software">Software</a><a href="#contacto">Contacto</a></nav></div>
     <div class="container footer-bottom"><span>© <span id="year">2026</span> PYMES. Todos los derechos reservados.</span><span>Diseñado con propósito en Chaco, Argentina.</span></div>
   </footer>
 
   <a class="whatsapp-float" id="whatsapp-float" href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer" aria-label="Contactar a PYMES por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L0 24l6.5-1.7a11.8 11.8 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.2-3.5-8.4ZM12.1 21.7a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.9 1 1-3.8-.3-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.8 9.8Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5H7.5c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.6s1.2 3 1.4 3.2c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg></a>
-  <script src="comercios.js"></script>
+  <script src="emprendimientos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
