@@ -40,6 +40,7 @@
       <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
         <a href="#emprendedores">Emprendedores</a>
         <a href="#servicios">Qué hacemos</a>
+        <a href="#precios">Precios</a>
         <a href="#software">Software</a>
         <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
       </nav>
@@ -52,12 +53,12 @@
       <div class="container vitrina-grid">
         <div class="vitrina-copy">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Vidriera de emprendedores y negocios · Chaco</div>
-          <h1 id="vitrina-titulo">Lo que se hace<br>en tu zona, en un<br><span>solo lugar.</span></h1>
-          <p class="vitrina-lead">Emprendimientos y negocios de la región: comida casera, ropa, artesanías, oficios, comercios y servicios. Encontrá lo que buscás y hablá directo con quien lo hace.</p>
-          <form class="vitrina-search" id="emp-form" role="search" action="#emp-listado">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="emp-buscar" type="search" placeholder="¿Qué estás buscando? Tortas, tejidos, herrería…" aria-label="Buscar emprendimientos" autocomplete="off">
-            <button class="button button-primary" type="submit">Buscar</button>
+          <h1 id="vitrina-titulo">Conocé tu pueblo,<br>conocé tu <span>hogar.</span></h1>
+          <p class="vitrina-lead">Conocé los emprendimientos y negocios de Campo Largo: comida casera, tortas y panificados, ropa y tejidos, artesanías, almacenes, oficios y servicios. Gente del pueblo que trabaja todos los días; encontrá lo que buscás y escribiles directo.</p>
+          <form class="vitrina-search buscador" id="emp-form" role="search" action="#emp-listado">
+            <span class="buscador-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+            <input id="emp-buscar" type="search" placeholder="Buscá tortas, ropa, herrería…" aria-label="Buscar emprendimientos" autocomplete="off" enterkeyhint="search">
+            <button class="buscador-btn" type="submit" aria-label="Buscar"><span>Buscar</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
           </form>
           <div class="vitrina-rubros" id="emp-filtros" role="group" aria-label="Filtrar por rubro"></div>
           <dl class="vitrina-stats" id="emp-stats" hidden>
@@ -238,6 +239,55 @@
       </div>
     </section>
 
+    <section class="section precio-section" id="precios" aria-labelledby="precio-titulo">
+      <div class="container">
+        <div class="precio-grid">
+          <div class="precio-card">
+            <span class="precio-regalo">🎁 1er mes de regalo</span>
+            <h2 id="precio-titulo">Tu página web</h2>
+            <p class="precio-desde">desde</p>
+            <p class="precio-monto"><span>$</span>10.000<small>/mes</small></p>
+            <p class="precio-nota">Sin pagar cientos de miles de pesos de entrada.</p>
+            <ul class="precio-lista">
+              <li>La diseñamos y la publicamos por vos</li>
+              <li>Tu dirección: <b>tunegocio.pymes.uno</b></li>
+              <li>Pedidos directo a tu WhatsApp, sin comisión por venta</li>
+              <li>Destacada en la vidriera de pymes.uno</li>
+              <li>La manejás vos desde la PC o el celular</li>
+            </ul>
+            <a class="button precio-btn" id="whatsapp-precio" href="#contacto" target="_blank" rel="noopener noreferrer">Quiero mi página <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div class="precio-cmp">
+            <div class="eyebrow svc-eyebrow"><span class="eyebrow-dot"></span> Compará y ahorrá</div>
+            <h3>Lo mismo, por mucho menos.</h3>
+            <div class="cmp-cols">
+              <div class="cmp-col cmp-pymes">
+                <b>PYMES</b>
+                <span class="cmp-total">≈ $110.000</span>
+                <small>el primer año (12 meses, pagás 11)</small>
+                <ul><li class="si">Sin pago inicial grande</li><li class="si">Sin comisión por venta</li><li class="si">Te la armamos nosotros</li></ul>
+              </div>
+              <div class="cmp-col">
+                <b>Agencia tradicional</b>
+                <span class="cmp-total">$180.000 a $500.000</span>
+                <small>solo para hacerla</small>
+                <ul><li class="no">Dominio y hosting aparte</li><li class="no">Cada cambio se cobra</li></ul>
+              </div>
+              <div class="cmp-col">
+                <b>Plataforma de tienda</b>
+                <span class="cmp-total">“Gratis”</span>
+                <small>pero la armás vos</small>
+                <ul><li class="no">Comisión en cada venta</li><li class="no">Plan pago para más funciones</li></ul>
+              </div>
+            </div>
+            <p class="cmp-ahorro">Con PYMES te ahorrás <strong>hasta 4 veces</strong> lo que cuesta solo hacer una página en una agencia, y en cada venta no se va ningún porcentaje.</p>
+            <p class="cmp-fuente">Valores de referencia de agencias y plataformas en Argentina, 2026. Pueden variar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-dark pos-section" id="software">
       <div class="container">
         <div class="section-heading section-heading-dark">
@@ -245,13 +295,8 @@
           <p>Con <strong>Pymes</strong>, nuestro sistema de punto de venta, tenés ventas, stock, caja y fiado en orden: menos tiempo con papeles y más tiempo para vender. Si tenés una tienda de ropa, está <strong>PymesTienda</strong>. <strong>Pymes Lite es gratis.</strong></p>
         </div>
 
-        <div class="pos-link">
-          <div class="pos-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
-          <div><h3>Tu caja y tu web, conectadas</h3><p>Desde la <strong>Tienda web</strong> del programa publicás todos tus productos (o solo los que elijas) con precio, oferta e imagen. El carrito manda los pedidos a tu <strong>WhatsApp</strong> y los horarios y datos de contacto también se editan desde la caja.</p></div>
-        </div>
-
         <div class="pos-grid">
-          <article class="pos-card">
+          <article class="pos-card pos-card-lite">
             <div class="pos-card-top"><span class="pos-badge">Pymes Lite</span><span class="pos-for">Kioscos · almacenes · despensas</span></div>
             <h3>Simple, rápido y<br>sin internet.</h3>
             <p class="pos-lead">Pensado para el local con una caja y una PC modesta. No se instala nada: se copia la carpeta y listo.</p>
@@ -353,6 +398,11 @@
             </div>
           </div>
         </article>
+
+        <div class="pos-link">
+          <div class="pos-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></div>
+          <div><h3>Tu caja y tu web, conectadas</h3><p>Desde la <strong>Tienda web</strong> del programa publicás todos tus productos (o solo los que elijas) con precio, oferta e imagen. El carrito manda los pedidos a tu <strong>WhatsApp</strong> y los horarios y datos de contacto también se editan desde la caja.</p></div>
+        </div>
 
         <div class="pos-cta">
           <p><strong>Empezá hoy con Lite y pasá a Pro cuando esté disponible.</strong> Los mismos datos, las mismas pantallas.</p>

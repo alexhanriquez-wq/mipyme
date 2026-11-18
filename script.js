@@ -53,6 +53,7 @@ function configureWhatsApp() {
   const mensaje = origen ? origen.mensaje : WHATSAPP_MESSAGE;
   ["whatsapp-cta", "whatsapp-float", "contacto-whatsapp"].forEach((id) => setHref(id, mensaje));
   setHref("whatsapp-pos", WHATSAPP_POS_MESSAGE);
+  setHref("whatsapp-precio", "¡Hola PYMES! Quiero mi página web desde $10.000 por mes con el primer mes de regalo.");
   setHref("contacto-config", WHATSAPP_CONFIG_MESSAGE);
 
   const llamar = document.getElementById("contacto-llamar");
@@ -268,6 +269,16 @@ function renderEmprendimientos() {
   }
   const actual = document.getElementById("emp-filtro-actual");
   if (buscar) buscar.addEventListener("input", pintar);
+  // Ideas de búsqueda que van rotando en el buscador mientras está vacío.
+  if (buscar && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const ideas = ["Buscá tortas, ropa, herrería…", "Buscá comida casera…", "Buscá tejidos y artesanías…", "Buscá un almacén cerca…", "Buscá arreglos y oficios…"];
+    let n = 0;
+    setInterval(() => {
+      if (buscar.value || document.activeElement === buscar) return;
+      buscar.classList.add("cambiando");
+      setTimeout(() => { n = (n + 1) % ideas.length; buscar.placeholder = ideas[n]; buscar.classList.remove("cambiando"); }, 300);
+    }, 3200);
+  }
   const form = document.getElementById("emp-form");
   if (form) form.addEventListener("submit", (ev) => {
     ev.preventDefault();
