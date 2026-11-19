@@ -35,6 +35,16 @@ const EMPRENDIMIENTOS = [
     "color": "#3F5CAB"
   },
   {
+    "nombre": "RemisesVane",
+    "rubro": "Servicios",
+    "descripcion": "Remises y paquetería",
+    "localidad": "Campo Largo, Chaco",
+    "responsable": "Vanesa Cordoba",
+    "whatsapp": "5493644449272",
+    "logo": "🚗",
+    "color": "#B4467A"
+  },
+  {
     "ejemplo": true,
     "nombre": "Dulce Tentación",
     "rubro": "Pastelería",
